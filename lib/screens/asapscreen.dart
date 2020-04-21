@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                                 child:Image(
                                   height: 150,
                                   width: 110,
-                                  image: AssetImage('assets/class1.jpeg'),
+                                  image: NetworkImage(snapshot.data.documents[i].data['imgurl'].toString()),
                                   fit: BoxFit.cover,
                                 ),
                               ),
