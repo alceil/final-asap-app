@@ -43,7 +43,7 @@ class _WebinarState extends State<Webinar> {
                 stream:Firestore.instance.collection('webinar').snapshots(),
                 builder: (context,snapshot)
                 {
-                 return ListView.builder(
+                 return  snapshot.hasData?ListView.builder(
                    scrollDirection: Axis.vertical,
                    shrinkWrap: true,
                    physics: ScrollPhysics(),
@@ -144,7 +144,10 @@ class _WebinarState extends State<Webinar> {
                           ),
                         );
                       }
-                  );
+                  ):Container
+      (
+        child: Center(child: CircularProgressIndicator()),
+      );
 
                 },
               )
@@ -243,7 +246,7 @@ class _WebinarState extends State<Webinar> {
                 stream:Firestore.instance.collection('webinar').snapshots(),
                 builder: (context,snapshot)
                 {
-                 return ListView.builder(
+                 return snapshot.hasData?ListView.builder(
                    scrollDirection: Axis.vertical,
                    shrinkWrap: true,
                    physics: ScrollPhysics(),
@@ -344,7 +347,7 @@ class _WebinarState extends State<Webinar> {
                           ),
                         );
                       }
-                  );
+                  ):Container(child:Center(child: CircularProgressIndicator(),));
 
                 },
               )

@@ -209,10 +209,7 @@ class _ClassState extends State<Class> {
       //   actions: <Widget>[
       //   ],
       // ),
-      body: cars==null?Container
-      (
-        child: Center(child: CircularProgressIndicator()),
-      ): Column(
+      body:  Column(
         children: <Widget>
         [
           // Padding(
@@ -246,14 +243,12 @@ class _ClassState extends State<Class> {
                 stream:Firestore.instance.collection('testcrud').snapshots(),
                 builder: (context,snapshot)
                 {
-                  if(snapshot.data!=null)
-                  {
-                    return ListView.builder(
+                    return snapshot.hasData?ListView.builder(
                    scrollDirection: Axis.vertical,
                    shrinkWrap: true,
                    physics: ScrollPhysics(),
                     
-                      itemCount: snapshot.data.documents.length,
+                      itemCount: snapshot.data.documents!=null?snapshot.data.documents.length:0,
                       itemBuilder: (context,i)
                       {
                         return Container(
@@ -359,17 +354,10 @@ class _ClassState extends State<Class> {
                           ),
                         );
                       }
-                  );
-
-                  }
-                  else
-                  {
-                    Container
+                  ):Container
       (
         child: Center(child: CircularProgressIndicator()),
       );
-
-                  }
                  
                 },
               )
