@@ -9,6 +9,10 @@ class crudmethods
 {
  return await Firestore.instance.collection('testcrud').getDocuments();
 }
+getData1() async
+{
+ return await Firestore.instance.collection('webinar').getDocuments();
+}
 
 updateData(selectedDoc,newValue)
 {

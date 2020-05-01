@@ -1,5 +1,8 @@
 import 'package:asap_app/screens/asapscreen.dart';
+import 'package:asap_app/screens/tabsscreen.dart';
 import 'package:asap_app/screens/testscreen.dart';
+import 'package:asap_app/widget/local_notification.dart';
+import 'package:asap_app/widget/newpage.dart';
 import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
@@ -12,9 +15,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:HomePage()
+      home:Home()
     );
   }
 }
+
 
 
